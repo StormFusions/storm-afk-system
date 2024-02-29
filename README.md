@@ -32,5 +32,10 @@ Edit StormAFK.Config.lua to customize the AFK system:
 ## Usage
 The system automatically monitors player activity. Once a player's inactivity exceeds the configured threshold, they are prompted with an AFK check question. Responding correctly within the allotted time prevents the player from being kicked. The system supports customization to fit various server settings and preferences.
 
+## Images
+
+![](https://i.imgur.com/8AgAPcB.png)
+![](https://i.imgur.com/pvBWlmH.png)
+
 ## Support
 For support, open an issue on GitHub
