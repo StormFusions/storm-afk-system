@@ -20,7 +20,7 @@ The AFK (Away From Keyboard) System is a Lua-based solution designed to enhance 
 - **Restart Your Server:** Apply the changes by restarting your Garry's Mod server.
 
 ## Configuration
-Edit StormAFK.Config.lua to customize the AFK system:
+Edit afk_config.lua to customize the AFK system:
 
 - **AFKTimerDisplay:** Time in seconds before showing the AFK check.
 = **AFKTimertoKick:** Time allowed for the player to answer the AFK question.
