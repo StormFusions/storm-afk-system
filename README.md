@@ -30,7 +30,7 @@ Edit afk_config.lua to customize the AFK system:
 - **reward:** Function defining the reward given to players who successfully respond to the AFK check.
 
 ## Usage
-The system automatically monitors player activity. Once a player's inactivity exceeds the configured threshold, they are prompted with an AFK check question. Responding correctly within the allotted time prevents the player from being kicked. The system supports customization to fit various server settings and preferences.
+The system is designed to automatically trigger an AFK prompt after a predetermined period of time. Players must respond correctly to this prompt within a specified timeframe to avoid being kicked from the server. 
 
 ## Images
 
