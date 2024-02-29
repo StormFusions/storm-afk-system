@@ -1,7 +1,7 @@
 # Storm AFK System for Garry's Mod
 
 ## About
-The AFK (Away From Keyboard) System is a Lua-based solution designed to enhance player engagement on Garry's Mod servers. It prompts players with a question after a period of inactivity. Failing to answer correctly within a given timeframe results in the player being considered AFK and subject to being kicked, thus ensuring active server participation.
+The AFK System is a Lua-based solution designed to enhance player engagement on Garry's Mod servers. It prompts players with a question after a period of inactivity. Failing to answer correctly within a given timeframe results in the player being considered AFK and subject to being kicked, thus ensuring active server participation.
 
 ## Features
 - **Configurable AFK Timer:** Customize the duration of inactivity before the AFK check is initiated.
