@@ -44,7 +44,7 @@ StormAFK.reward = function(ply)
     -- Example: Add points to the player's account using a point shop system.
     ply:PS2_AddStandardPoints(50, "Completion of AFK Check")
     -- Broadcast a message to the player confirming the reward.
-    ply:AFK_Broadcast("You've been awarded 50 points for completing the AFK check.", StormAFK.afkMessageColor)
+    ply:AFK_Broadcast("You've been awarded 50 points for completing the AFK check.")
 end
 
 function StormAFK.createPermission(perm, group, hlp, cat)
