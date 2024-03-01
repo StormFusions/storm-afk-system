@@ -3,7 +3,7 @@
 StormAFK = {}
 
 -- Duration in seconds before the AFK check is initiated.
-StormAFK.AFKTimerDisplay = 420
+StormAFK.AFKTimerDisplay = 15
 
 -- Duration in seconds the player has to respond to the AFK check before being kicked.
 StormAFK.AFKTimertoKick = 60
@@ -44,3 +44,13 @@ StormAFK.reward = function(ply)
     -- Broadcast a message to the player confirming the reward.
     ply:AFK_Broadcast("You've been awarded 50 points for completing the AFK check.", StormAFK.afkMessageColor)
 end
+
+function StormAFK.createPermission(perm, group, hlp, cat)
+	if ULib and ULib.ucl and ULib.ucl.registerAccess then
+		return ULib.ucl.registerAccess(perm, group, hlp, cat)
+	end
+end
+
+hook.Add("Initialize", "AFK Config Permissions", function()
+	StormAFK.createPermission("storm afk immune", ULib.ACCESS_SUPERADMIN, "Gives the user immunity from the AFK system", "Storm")
+end)

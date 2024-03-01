@@ -1,4 +1,3 @@
-
 util.AddNetworkString("afk_failed")
 util.AddNetworkString("start_afkmenu")
 util.AddNetworkString("afk_complete")
@@ -68,7 +67,10 @@ timer.Create("GlobalAFKCheck", 1, 0, function()
 end)
 
 hook.Add("PlayerInitialSpawn", "start_timer", function(ply)
-	//if ply:SteamID() == "STEAM_0:1:43788867" then return end
+	if ULib then
+		local plyPerm = ULib.ucl.query(ply, "storm afk immune", false)
+		if plyPerm then return end
+	end
 	playerTimer[ply:SteamID()] = CurTime()
 end)
 
