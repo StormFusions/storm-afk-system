@@ -1,7 +1,7 @@
 # Storm AFK System for Garry's Mod
 
 ## About
-The AFK (Away From Keyboard) System is a Lua-based solution designed to enhance player engagement on Garry's Mod servers. It prompts players with a question after a period of inactivity. Failing to answer correctly within a given timeframe results in the player being considered AFK and subject to being kicked, thus ensuring active server participation.
+The AFK System is a Lua-based solution designed to enhance player engagement on Garry's Mod servers. It prompts players with a question after a period of inactivity. Failing to answer correctly within a given timeframe results in the player being considered AFK and subject to being kicked, thus ensuring active server participation.
 
 ## Features
 - **Configurable AFK Timer:** Customize the duration of inactivity before the AFK check is initiated.
@@ -20,7 +20,7 @@ The AFK (Away From Keyboard) System is a Lua-based solution designed to enhance 
 - **Restart Your Server:** Apply the changes by restarting your Garry's Mod server.
 
 ## Configuration
-Edit StormAFK.Config.lua to customize the AFK system:
+Edit afk_config.lua to customize the AFK system:
 
 - **AFKTimerDisplay:** Time in seconds before showing the AFK check.
 = **AFKTimertoKick:** Time allowed for the player to answer the AFK question.
@@ -30,7 +30,7 @@ Edit StormAFK.Config.lua to customize the AFK system:
 - **reward:** Function defining the reward given to players who successfully respond to the AFK check.
 
 ## Usage
-The system automatically monitors player activity. Once a player's inactivity exceeds the configured threshold, they are prompted with an AFK check question. Responding correctly within the allotted time prevents the player from being kicked. The system supports customization to fit various server settings and preferences.
+The system is designed to automatically trigger an AFK prompt after a predetermined period of time. Players must respond correctly to this prompt within a specified timeframe to avoid being kicked from the server. 
 
 ## Images
 
