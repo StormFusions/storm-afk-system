@@ -2,6 +2,8 @@
 
 StormAFK = {}
 
+StormAFK.version = "1.0.2"
+
 -- Duration in seconds before the AFK check is initiated.
 StormAFK.AFKTimerDisplay = 15
 
@@ -51,6 +53,28 @@ function StormAFK.createPermission(perm, group, hlp, cat)
 	end
 end
 
+local function CheckForUpdates()
+	http.Fetch("https://raw.githubusercontent.com/StormFusions/storm-afk-system/main/version.json",
+		function(body, len, headers, code)
+			local data = util.JSONToTable(body)
+			if not data then return end
+
+			if StormAFK.version ~= data.latest_version then
+				-- Notify the server console
+				local msg = "A new update is available! Please visit " .. data.update_url .. " to download the latest version."
+				print("[StormAFK] "..msg)
+				
+			end
+		end,
+		function(error)
+			-- Error handling
+			print("[StormAFK] Failed to check for updates: " .. error)
+		end
+	)
+end
+
 hook.Add("Initialize", "AFK Config Permissions", function()
+	timer.Create("stormAFK_checkupdates", 600, 0, CheckForUpdates)
+	CheckForUpdates()
 	StormAFK.createPermission("storm afk immune", ULib.ACCESS_SUPERADMIN, "Gives the user immunity from the AFK system", "Storm")
 end)
