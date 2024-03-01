@@ -5,6 +5,7 @@ local timetokick = StormAFK.AFKTimertoKick
 
 local questions = StormAFK.questions
 
+
 net.Receive("start_afkmenu", function()
 	local question = net.ReadString()
 	if afkFrameBool then return end
@@ -13,6 +14,7 @@ end)
 
 local afkFrame
 local afkFrameBool = false
+local afkTextEntryBool = false
 
 local function actionPress(str)
 
@@ -29,6 +31,7 @@ net.Receive("afk_complete", function()
 		end
 		afkFrameBool = false
 		gui.EnableScreenClicker( false )
+		afkTextEntryBool = false
 	end
 end)
 
@@ -44,6 +47,7 @@ function Storm.AFKMenu(question)
 	afkFrame:SetSize(270,150)
 	afkFrame:SetFrameName("AFK (Hold C to interact)")
 	afkFrame:SetKeyBoardInputEnabled( true )
+	afkFrame:SetMouseInputEnabled( true )
 
 	local Panel = vgui.Create("DPanel", afkFrame)
 	Panel:SetPos(10, 35)
@@ -67,6 +71,15 @@ function Storm.AFKMenu(question)
 		local str = TextEntry:GetValue()
 		actionPress( str )
 	end
+	TextEntry.OnGetFocus = function()
+		gui.EnableScreenClicker(true)  -- Keep the mouse for UI interaction
+		afkTextEntryBool = true
+	end
+	TextEntry.OnLoseFocus = function()
+		if afkFrameBool then -- Example condition, adjust based on your needs
+			gui.EnableScreenClicker(false) -- Return mouse control to the game
+		end
+	end
 
 	local button = vgui.Create("AdminStormSaveButton", afkFrame)
 	button:SetButtonText("Submit")
@@ -81,13 +94,18 @@ end
 hook.Add("OnContextMenuOpen", "afkmenu_releasemouse",function()
 	if afkFrameBool then
 		afkFrame:MakePopup()
+		afkFrame:SetMouseInputEnabled(true)
+		afkFrame:SetKeyboardInputEnabled(true)
+
 		gui.EnableScreenClicker(true)
 	end
-	--gui.EnableScreenClicker(true)
 end)
 
 hook.Add("OnContextMenuClose", "afkmenu_releasemouse",function()
-	if not afkFrameBool then
+	if afkFrameBool and not afkTextEntryBool then
+		afkFrame:SetMouseInputEnabled(false)
+		afkFrame:SetKeyboardInputEnabled(false)
+
 		gui.EnableScreenClicker( false )
 	end
 end)

@@ -2,7 +2,7 @@
 
 StormAFK = {}
 
-StormAFK.version = "1.0.2"
+StormAFK.version = "1.0.3"
 
 -- Duration in seconds before the AFK check is initiated.
 StormAFK.AFKTimerDisplay = 15
