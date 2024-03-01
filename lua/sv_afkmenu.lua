@@ -24,13 +24,10 @@ end
 
 net.Receive("afk_response", function(len, ply)
 	local ans = net.ReadString()
-	print("Got a response "..ply:SteamID())
 	if IsValid(ply) and timer.Exists(ply:SteamID().."_afkresponse") then
-		print("Response from "..ply:Name())
 		local question = playerQuestion[ply:SteamID()]
 		if ans == question[2] then
 			timer.Remove(ply:SteamID().."_afkresponse")
-			print(ply:Name().." done the AFK")
 			net.Start("afk_complete")
 			net.Send(ply)
 			question = nil
