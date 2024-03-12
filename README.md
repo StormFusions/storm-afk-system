@@ -23,7 +23,7 @@ The AFK System is a Lua-based solution designed to enhance player engagement on 
 Edit afk_config.lua to customize the AFK system:
 
 - **AFKTimerDisplay:** Time in seconds before showing the AFK check.
-= **AFKTimertoKick:** Time allowed for the player to answer the AFK question.
+- **AFKTimertoKick:** Time allowed for the player to answer the AFK question.
 - **questions:** List of questions and their answers for the AFK check.
 - **bannerColor, afkTagColor, afkTagName, afkMessageColor:** Customize the appearance of the AFK check UI and messages.
 - **kickMessage:** The message shown to players who fail the AFK check.
