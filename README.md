@@ -37,5 +37,8 @@ The system is designed to automatically trigger an AFK prompt after a predetermi
 ![](https://i.imgur.com/8AgAPcB.png)
 ![](https://i.imgur.com/pvBWlmH.png)
 
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
 ## Support
 For support, open an issue on GitHub
